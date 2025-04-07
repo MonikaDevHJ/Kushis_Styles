@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import {
   FaSearch,
@@ -14,15 +15,21 @@ type DropdownType = "profile" | "cart" | "login" | null;
 const Navbar: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<DropdownType>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubmenu, setMobileSubmenu] = useState<DropdownType>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = (menu: DropdownType) => {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
 
+  const toggleMobileSubmenu = (menu: DropdownType) => {
+    setMobileSubmenu(mobileSubmenu === menu ? null : menu);
+  };
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-    setOpenDropdown(null); // Close dropdowns when toggling mobile menu
+    setOpenDropdown(null);
+    setMobileSubmenu(null);
   };
 
   useEffect(() => {
@@ -42,8 +49,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="bg-white  shadow-md rounded-2xl  py-5 px-2 lg:px-1 md:px-0.5  sm:px-2 flex justify-between items-center relative">
-      {/* Left - Brand Name */} 
+    <nav className="bg-white shadow-md rounded-2xl py-4 px-1 lg:px-2.5 md:px-0.5 sm:px-2 flex justify-between items-center relative">
+      {/* Left - Brand Name */}
       <div className="text-2xl md:text-3xl font-bold text-fuchsia-700">
         Kushi Styles
       </div>
@@ -98,8 +105,8 @@ const Navbar: React.FC = () => {
           </button>
           {openDropdown === "login" && (
             <div className="absolute right-0 mt-2 w-40 bg-white border shadow-lg rounded-md p-2 z-50">
-              <p className="cursor-pointer p-2 hover:bg-gray-100">Sign In</p>
-              <p className="cursor-pointer p-2 hover:bg-gray-100">Register</p>
+              <Link href="/signin" className="block p-2 hover:bg-gray-100">Sign In</Link>
+              <Link href="/register" className="block p-2 hover:bg-gray-100">Register</Link>
             </div>
           )}
         </div>
@@ -128,21 +135,59 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Profile */}
-          <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 rounded">
-            <FaUser className="text-gray-700 text-xl" />
-            <span>Profile</span>
+          <div>
+            <div
+              className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2 rounded"
+              onClick={() => toggleMobileSubmenu("profile")}
+            >
+              <div className="flex items-center gap-2">
+                <FaUser className="text-gray-700 text-xl" />
+                <span>Profile</span>
+              </div>
+              <span>{mobileSubmenu === "profile" ? "▲" : "▼"}</span>
+            </div>
+            {mobileSubmenu === "profile" && (
+              <div className="ml-8 mt-1 flex flex-col gap-2 text-sm">
+                <p className="hover:underline cursor-pointer">Profile</p>
+                <p className="hover:underline cursor-pointer">Settings</p>
+                <p className="hover:underline cursor-pointer">Logout</p>
+              </div>
+            )}
           </div>
 
           {/* Cart */}
-          <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 rounded">
-            <FaShoppingCart className="text-gray-700 text-xl" />
-            <span>Your Cart</span>
+          <div>
+            <div
+              className="flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2 rounded"
+              onClick={() => toggleMobileSubmenu("cart")}
+            >
+              <div className="flex items-center gap-2">
+                <FaShoppingCart className="text-gray-700 text-xl" />
+                <span>Your Cart</span>
+              </div>
+              <span>{mobileSubmenu === "cart" ? "▲" : "▼"}</span>
+            </div>
+            {mobileSubmenu === "cart" && (
+              <div className="ml-8 mt-1 text-sm text-gray-700">Your Cart is Empty</div>
+            )}
           </div>
 
           {/* Login */}
-          <button className="bg-fuchsia-700 text-white text-lg font-semibold px-5 py-2 rounded-full hover:bg-fuchsia-500 transition">
-            Login
-          </button>
+          <div>
+            <div
+              className="flex justify-between items-center cursor-pointer bg-fuchsia-700 text-white text-lg font-semibold px-5 py-2 rounded-full hover:bg-fuchsia-500 transition"
+              onClick={() => toggleMobileSubmenu("login")}
+            >
+              <span>Login</span>
+              <span>{mobileSubmenu === "login" ? "▲" : "▼"}</span>
+            </div>
+            {mobileSubmenu === "login" && (
+              <div className="ml-8 mt-2 flex flex-col gap-2 text-sm">
+                <Link href="/signin" className="hover:underline">Sign In</Link>
+                <Link href="/register" className="hover:underline">Register</Link>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </nav>
