@@ -4,10 +4,8 @@ const Main = () => {
   const cards = [
     { image: "/assets/Grocery_image.jpg", label: "Grocery" },
     { image: "/assets/Mobiles_images.jpg", label: "Mobiles" },
-
     { image: "/assets/Womens_image.jpg", label: "Womens" },
     { image: "/assets/Men_image.jpg", label: "Men" },
-
     { image: "/assets/Gifts_image.jpg", label: "Gifts" },
     { image: "/assets/Makeup_image.jpg", label: "Makeup" }
     // Add more cards if you want!
@@ -15,7 +13,7 @@ const Main = () => {
 
   return (
     <div className="p-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
         {cards.map((card, index) => (
           <div
             key={index}
