@@ -7,7 +7,7 @@ import {
   FaUser,
   FaShoppingCart,
   FaBars,
-  FaTimes,
+  FaTimes
 } from "react-icons/fa";
 
 type DropdownType = "profile" | "cart" | "login" | null;
@@ -51,9 +51,12 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-md rounded-2xl py-4 px-1 lg:px-2.5 md:px-0.5 sm:px-2 flex justify-between items-center relative">
       {/* Left - Brand Name */}
-      <div className="text-2xl md:text-3xl font-bold text-fuchsia-700">
+      <Link
+        href="/"
+        className="text-2xl md:text-3xl font-bold text-fuchsia-700 hover:underline"
+      >
         Kushi Styles
-      </div>
+      </Link>
 
       {/* Middle - Search Bar for md+ */}
       <div className="hidden md:flex items-center bg-fuchsia-200 rounded-full px-4 py-3 w-1/3 border-2 border-transparent hover:border-fuchsia-600 ml-0.5">
@@ -66,7 +69,10 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Right - Icons & Dropdowns */}
-      <div className="hidden md:flex items-center space-x-6 gap-5" ref={dropdownRef}>
+      <div
+        className="hidden md:flex items-center space-x-6 gap-5"
+        ref={dropdownRef}
+      >
         {/* Profile Dropdown */}
         <div className="relative">
           <FaUser
@@ -105,8 +111,12 @@ const Navbar: React.FC = () => {
           </button>
           {openDropdown === "login" && (
             <div className="absolute right-0 mt-2 w-40 bg-white border shadow-lg rounded-md p-2 z-50">
-              <Link href="/signin" className="block p-2 hover:bg-gray-100">Sign In</Link>
-              <Link href="/register" className="block p-2 hover:bg-gray-100">Register</Link>
+              <Link href="/signin" className="block p-2 hover:bg-gray-100">
+                Sign In
+              </Link>
+              <Link href="/register" className="block p-2 hover:bg-gray-100">
+                Register
+              </Link>
             </div>
           )}
         </div>
@@ -115,9 +125,15 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Icon */}
       <div className="md:hidden">
         {mobileMenuOpen ? (
-          <FaTimes className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
+          <FaTimes
+            className="text-2xl cursor-pointer"
+            onClick={toggleMobileMenu}
+          />
         ) : (
-          <FaBars className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
+          <FaBars
+            className="text-2xl cursor-pointer"
+            onClick={toggleMobileMenu}
+          />
         )}
       </div>
 
@@ -168,7 +184,9 @@ const Navbar: React.FC = () => {
               <span>{mobileSubmenu === "cart" ? "▲" : "▼"}</span>
             </div>
             {mobileSubmenu === "cart" && (
-              <div className="ml-8 mt-1 text-sm text-gray-700">Your Cart is Empty</div>
+              <div className="ml-8 mt-1 text-sm text-gray-700">
+                Your Cart is Empty
+              </div>
             )}
           </div>
 
@@ -183,8 +201,12 @@ const Navbar: React.FC = () => {
             </div>
             {mobileSubmenu === "login" && (
               <div className="ml-8 mt-2 flex flex-col gap-2 text-sm">
-                <Link href="/signin" className="hover:underline">Sign In</Link>
-                <Link href="/register" className="hover:underline">Register</Link>
+                <Link href="/signin" className="hover:underline">
+                  Sign In
+                </Link>
+                <Link href="/register" className="hover:underline">
+                  Register
+                </Link>
               </div>
             )}
           </div>
