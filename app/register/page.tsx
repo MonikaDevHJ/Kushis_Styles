@@ -7,11 +7,11 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!email || !password || !confirmPassword) {
       setError("Please fill out all fields.");
       return;
@@ -27,11 +27,33 @@ const RegisterPage = () => {
       return;
     }
 
-    // Clear errors
-    setError("");
+    setError(""); // Clear error
+    setSuccess(""); // Clear previous success
 
-    // ✅ This is where you will call Firebase or your auth backend
-    console.log("Registering with", { email, password });
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Registration failed.");
+      } else {
+        setSuccess("Account created successfully!");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+
+      setError("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -66,6 +88,10 @@ const RegisterPage = () => {
 
         {error && (
           <p className="text-red-500 text-sm mb-4 font-medium">{error}</p>
+        )}
+
+        {success && (
+          <p className="text-green-600 text-sm mb-4 font-medium">{success}</p>
         )}
 
         <button
