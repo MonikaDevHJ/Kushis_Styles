@@ -15,7 +15,7 @@ const CategoryPage = ({ params }: Props) => {
     (item) => item.categoryPage.toLowerCase() === category.toLowerCase()
   );
 
-  
+
 
   return (
     <div className="p-4">
@@ -35,23 +35,36 @@ const CategoryPage = ({ params }: Props) => {
         {/* Right: Product Grid */}
         <div className="md:col-span-3">
           {filterProduct.length === 0 ? (
-            <p className="text-red-600 text-lg">No products found for "{category}"</p>
+            <p className="text-red-600 text-lg">
+              No products found for "{category}"
+            </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filterProduct.map((item, index) => (
-                <div key={index} className="border rounded shadow p-4 text-center">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 object-cover rounded mb-3"
-                  />
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-gray-600 mt-1">₹{item.price}</p>
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="w-full aspect-[3/4] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  <div className="p-4">
+                    <p className="font-semibold text-lg text-gray-800">{item.title}</p>
+                    <p className="text-gray-600 mt-1">₹{item.price}</p>
+                  </div>
                 </div>
               ))}
             </div>
           )}
         </div>
+
+
+
       </div>
     </div>
   );
