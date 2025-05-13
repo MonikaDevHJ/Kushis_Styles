@@ -34,7 +34,7 @@ const CategoryPage = ({ params }: Props) => {
 
         {/* Right: Product Grid */}
         <div className="md:col-span-3">
-          {filterProduct.length === 0 ? (
+          {filterProduct.length === 0 ? (o
             <p className="text-red-600 text-lg">
               No products found for "{category}"
             </p>
@@ -53,7 +53,7 @@ const CategoryPage = ({ params }: Props) => {
                     />
                   </div>
 
-                  <div className="p-4">
+                  <div className="p-4 flex gap-3">
                     <p className="font-semibold text-lg text-gray-800">{item.title}</p>
                     <p className="text-gray-600 mt-1">₹{item.price}</p>
                   </div>
