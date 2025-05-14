@@ -8,6 +8,17 @@ const CategoryFilters = ({ category }: Props) => {
     if (category === "womens") {
         return (
             <>
+
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Select Item</label>
+                    <select className="w-full border rounded p-2">
+                        <option value="">All</option>
+                        <option value="s">Jeans</option>
+                        <option value="m">Kurta</option>
+                        <option value="l">Saree</option>
+                        <option value="xl">Tops</option>
+                    </select>
+                </div>
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-1">Size</label>
                     <select className="w-full border rounded p-2">
