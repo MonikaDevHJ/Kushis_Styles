@@ -12,7 +12,7 @@ const CategoryFilters = ({ category }: Props) => {
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-1">Select Item</label>
                     <select className="w-full border rounded p-2">
-                        <option value="">All</option>
+                        <option value="">All Items</option>
                         <option value="s">Jeans</option>
                         <option value="m">Kurta</option>
                         <option value="l">Saree</option>

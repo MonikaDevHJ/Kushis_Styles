@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import { Product } from "../Data/Product";
 import CategoryFilters from "../components/category/categoryFilter"
 
@@ -9,6 +12,8 @@ interface Props {
 
 const CategoryPage = ({ params }: Props) => {
   const { category } = params;
+
+  const [selectedItem , setSelectedItem] = useState("")
 
   // Filter products based on category
   const filterProduct = Product.filter(
