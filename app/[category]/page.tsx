@@ -39,23 +39,46 @@ const CategoryPage = ({ params }: Props) => {
               No products found for "{category}"
             </p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {filterProduct.map((item, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="w-full aspect-[3/4] overflow-hidden">
+                  {/* Image with Heart Icon */}
+                  <div className="w-full aspect-[3/4] relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-contain"
                     />
+
+                    {/* Wishlist Heart Icon – Top Right */}
+                    <div className="absolute top-2 right-0">
+                      <button className="text-red-500 text-4xl hover:scale-110 transition-transform">
+                        ♥
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="p-4 flex gap-3">
+
+                  {/* Title and Price */}
+                  <div className="p-4 flex justify-between items-center mt-3">
                     <p className="font-semibold text-lg text-gray-800">{item.title}</p>
-                    <p className="text-gray-600 mt-1">₹{item.price}</p>
+                    <p className="text-gray-950 mt-1 font-bold">₹{item.price}</p>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex flex-wrap justify-center gap-2 px-4 pb-4 mt-3">
+                    <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">
+                      Buy Now
+                    </button>
+                    <button className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition">
+                      Add to Cart
+                    </button>
+                    <button className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 transition">
+                      View Details
+                    </button>
                   </div>
                 </div>
               ))}
