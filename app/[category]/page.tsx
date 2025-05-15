@@ -32,7 +32,7 @@ const CategoryPage = ({ params }: Props) => {
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Dynamic Filters based on Category */}
-          <CategoryFilters category={category} />
+          <CategoryFilters category={category} setSelected = {setSelectedItem} />
 
 
         </div>
