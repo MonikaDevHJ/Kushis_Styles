@@ -1,10 +1,11 @@
-import React from "react";
+import React, {Dispatch, SetStateAction } from "react";
 
 interface Props {
     category: string;
+    setSelected : Dispatch<SetStateAction<string>>;
 }
 
-const CategoryFilters = ({ category }: Props) => {
+const CategoryFilters = ({ category, setSelected }: Props) => {
     if (category === "womens") {
         return (
             <>
