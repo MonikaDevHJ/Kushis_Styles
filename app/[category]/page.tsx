@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { Product } from "../Data/Product";
-import CategoryFilters from "../components/category/categoryFilter"
+import CategoryFilters from "../components/category/categoryFilter";
 
 interface Props {
   params: {
@@ -13,18 +13,21 @@ interface Props {
 const CategoryPage = ({ params }: Props) => {
   const { category } = params;
 
-  const [selectedItem , setSelectedItem] = useState("")
+  const [selectedItem, setSelectedItem] = useState("");
 
   // Filter products based on category
   const filterProduct = Product.filter(
-    (item) => item.categoryPage.toLowerCase() === category.toLowerCase()
+    (item) =>
+      item.categoryPage.toLowerCase() === category.toLowerCase() &&
+      (selectedItem === "" ||
+        item.type?.toLowerCase() === selectedItem.toLocaleLowerCase())
   );
-
-
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold capitalize mb-4">{category} Collection</h1>
+      <h1 className="text-2xl font-bold capitalize mb-4">
+        {category} Collection
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Left: Filter Sidebar */}
@@ -32,9 +35,7 @@ const CategoryPage = ({ params }: Props) => {
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Dynamic Filters based on Category */}
-          <CategoryFilters category={category} setSelected = {setSelectedItem} />
-
-
+          <CategoryFilters category={category} setSelected={setSelectedItem} />
         </div>
 
         {/* Right: Product Grid */}
@@ -66,11 +67,14 @@ const CategoryPage = ({ params }: Props) => {
                     </div>
                   </div>
 
-
                   {/* Title and Price */}
                   <div className="p-4 flex justify-between items-center mt-3">
-                    <p className="font-semibold text-lg text-gray-800">{item.title}</p>
-                    <p className="text-gray-950 mt-1 font-bold">₹{item.price}</p>
+                    <p className="font-semibold text-lg text-gray-800">
+                      {item.title}
+                    </p>
+                    <p className="text-gray-950 mt-1 font-bold">
+                      ₹{item.price}
+                    </p>
                   </div>
 
                   {/* Buttons */}
@@ -90,9 +94,6 @@ const CategoryPage = ({ params }: Props) => {
             </div>
           )}
         </div>
-
-
-
       </div>
     </div>
   );
