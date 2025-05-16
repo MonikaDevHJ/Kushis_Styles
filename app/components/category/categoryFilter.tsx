@@ -14,14 +14,14 @@ const CategoryFilters = ({ category, setSelected }: Props) => {
           <select className="w-full border rounded p-2" onChange={(e)=>setSelected(e.target.value)}>
 
             <option value="">All Items</option>
-            <option value="s">Jeans</option>
-            <option value="m">Kurta</option>
-            <option value="l">Saree</option>
-            <option value="xl">Tops</option>
+            <option value="Jeans">Jeans</option>
+            <option value="kurta">Kurta</option>
+            <option value="Sarre">Saree</option>
+            <option value="Tops">Tops</option>
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Size</label>
+          <label className="block text-sm font-medium mb-1"> Select Size</label>
           <select className="w-full border rounded p-2">
             <option value="">All Sizes</option>
             <option value="s">S</option>
@@ -31,7 +31,7 @@ const CategoryFilters = ({ category, setSelected }: Props) => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Color</label>
+          <label className="block text-sm font-medium mb-1"> Select Color</label>
           <select className="w-full border rounded p-2">
             <option value="">All Colors</option>
             <option value="blue">Blue</option>
