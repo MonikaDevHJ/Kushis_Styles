@@ -14,13 +14,16 @@ const CategoryPage = ({ params }: Props) => {
   const { category } = params;
 
   const [selectedItem, setSelectedItem] = useState("");
+  const [selectColor, setSelectedColor] = useState("");
 
   // Filter products based on category
   const filterProduct = Product.filter(
     (item) =>
       item.categoryPage.toLowerCase() === category.toLowerCase() &&
       (selectedItem === "" ||
-        item.type?.toLowerCase() === selectedItem.toLocaleLowerCase())
+        item.type?.toLowerCase() === selectedItem.toLocaleLowerCase()) &&
+      (selectColor === "" || item.color?.toLocaleLowerCase() === selectColor.toLocaleLowerCase())
+
   );
 
   return (
@@ -35,7 +38,7 @@ const CategoryPage = ({ params }: Props) => {
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Dynamic Filters based on Category */}
-          <CategoryFilters category={category} setSelected={setSelectedItem} />
+          <CategoryFilters category={category} setSelectedName={setSelectedItem} setSelectedColor={setSelectedColor} />
         </div>
 
         {/* Right: Product Grid */}
