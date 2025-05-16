@@ -5,7 +5,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-    type :"kurta"
+    type: "kurta"
   },
   {
     id: 2,
@@ -13,11 +13,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
-    
-
-    
-
+    type: "kurta"
   },
   {
     id: 3,
@@ -25,7 +21,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 4,
@@ -33,7 +29,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 5,
@@ -41,7 +37,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 6,
@@ -49,7 +45,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 7,
@@ -57,7 +53,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 8,
@@ -65,7 +61,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 9,
@@ -73,7 +69,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 10,
@@ -81,7 +77,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 11,
@@ -89,7 +85,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 12,
@@ -97,7 +93,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"kurta"
+    type: "kurta"
   },
   {
     id: 13,
@@ -105,7 +101,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 14,
@@ -113,7 +109,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 15,
@@ -121,7 +117,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 16,
@@ -129,7 +125,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 17,
@@ -137,7 +133,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 18,
@@ -145,7 +141,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 19,
@@ -153,7 +149,7 @@ export const Product = [
     title: "Drees",
     price: 299,
     categoryPage: "womens",
-     type :"Jeans"
+    type: "Jeans"
   },
   {
     id: 20,
