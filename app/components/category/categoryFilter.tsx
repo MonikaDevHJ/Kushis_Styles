@@ -2,16 +2,17 @@ import React, { Dispatch, SetStateAction } from "react";
 
 interface Props {
   category: string;
-  setSelected: Dispatch<SetStateAction<string>>;
+  setSelectedName: Dispatch<SetStateAction<string>>;
+  setSelectedColor : Dispatch<SetStateAction<string>>
 }
 
-const CategoryFilters = ({ category, setSelected }: Props) => {
+const CategoryFilters = ({ category, setSelectedName }: Props) => {
   if (category === "womens") {
     return (
       <>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Select Item</label>
-          <select className="w-full border rounded p-2" onChange={(e)=>setSelected(e.target.value)}>
+          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
 
             <option value="">All Items</option>
             <option value="Jeans">Jeans</option>
@@ -20,9 +21,18 @@ const CategoryFilters = ({ category, setSelected }: Props) => {
             <option value="Tops">Tops</option>
           </select>
         </div>
+         <div className="mb-4">
+          <label className="block text-sm font-medium mb-1"> Select Color</label>
+          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
+            <option value="">All Colors</option>
+            <option value="blue">Blue</option>
+            <option value="black">Red</option>
+            <option value="white">White</option>
+          </select>
+        </div>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1"> Select Size</label>
-          <select className="w-full border rounded p-2">
+          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
             <option value="">All Sizes</option>
             <option value="s">S</option>
             <option value="m">M</option>
@@ -30,15 +40,7 @@ const CategoryFilters = ({ category, setSelected }: Props) => {
             <option value="xl">XL</option>
           </select>
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1"> Select Color</label>
-          <select className="w-full border rounded p-2">
-            <option value="">All Colors</option>
-            <option value="blue">Blue</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-          </select>
-        </div>
+       
       </>
     );
   }
