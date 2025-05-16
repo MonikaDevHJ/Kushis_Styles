@@ -3,16 +3,16 @@ import React, { Dispatch, SetStateAction } from "react";
 interface Props {
   category: string;
   setSelectedName: Dispatch<SetStateAction<string>>;
-  setSelectedColor : Dispatch<SetStateAction<string>>
+  setSelectedColor: Dispatch<SetStateAction<string>>
 }
 
-const CategoryFilters = ({ category, setSelectedName }: Props) => {
+const CategoryFilters = ({ category, setSelectedName , setSelectedColor}: Props) => {
   if (category === "womens") {
     return (
       <>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Select Item</label>
-          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
+          <select className="w-full border rounded p-2" onChange={(e) => setSelectedName(e.target.value)}>
 
             <option value="">All Items</option>
             <option value="Jeans">Jeans</option>
@@ -21,18 +21,20 @@ const CategoryFilters = ({ category, setSelectedName }: Props) => {
             <option value="Tops">Tops</option>
           </select>
         </div>
-         <div className="mb-4">
+        <div className="mb-4">
           <label className="block text-sm font-medium mb-1"> Select Color</label>
-          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
+          <select className="w-full border rounded p-2" onChange={(e) => setSelectedColor(e.target.value)}>
             <option value="">All Colors</option>
-            <option value="blue">Blue</option>
-            <option value="black">Red</option>
-            <option value="white">White</option>
+            <option value="Blue">Blue</option>
+            <option value="Black">Red</option>
+            <option value="White">White</option>
+            <option value="Red">White</option>
+
           </select>
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1"> Select Size</label>
-          <select className="w-full border rounded p-2" onChange={(e)=>setSelectedName(e.target.value)}>
+          <select className="w-full border rounded p-2" onChange={(e) => setSelectedName(e.target.value)}>
             <option value="">All Sizes</option>
             <option value="s">S</option>
             <option value="m">M</option>
@@ -40,7 +42,7 @@ const CategoryFilters = ({ category, setSelectedName }: Props) => {
             <option value="xl">XL</option>
           </select>
         </div>
-       
+
       </>
     );
   }
